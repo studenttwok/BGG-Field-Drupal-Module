@@ -14,4 +14,9 @@ Create the a content type with BGG Field.
 
 Type in the BGG ID.
 
-
+# Screenshot
+![](p1.jpg "Add field")
+![](p2.jpg "Widget")
+![](p3.jpg "Formatter")
+![](p4.jpg "Formatter")
+![](p5.jpg "Formatter")
