@@ -1,0 +1,7 @@
+name: BGG Field
+type: module
+description: BGG Field Implementation
+package: BGG Field
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - drupal:node

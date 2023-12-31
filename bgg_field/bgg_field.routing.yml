@@ -1,0 +1,8 @@
+# Provides a simple user interface that tells the developer where to go.
+bgg_field.description:
+  path: '/bgg-field'
+  defaults:
+    _controller: '\Drupal\bgg_field\Controller\BGGFieldController::description'
+    _title: 'BGG Field'
+  requirements:
+    _permission: 'access content'

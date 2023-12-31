@@ -1,0 +1,9 @@
+colorpicker:
+  version: 1.x
+  js:
+    field_example.js: {}
+  dependencies:
+    - core/jquery
+    - drupal:node
+    - drupal:path
+    - drupal:text

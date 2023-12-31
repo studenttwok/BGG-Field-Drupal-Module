@@ -1,0 +1,3 @@
+field_example.description:
+ title:       BGG Field
+ route_name:  bgg_field.description

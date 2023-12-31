@@ -1,0 +1,206 @@
+<div style="border-style: dotted;  border-color: blue;">
+    <table class="bggapi">
+    <tbody>
+        <tr><td colspan="2">{{content.item.description|raw}}</td></tr>
+        
+        <tr>
+            <td scope="row">Designer</td>
+            <td scope="row">
+                {% for item in content.item.boardgamedesigner %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td scope="row">Artist</td>
+            <td scope="row">
+                {% for item in content.item.boardgameartist %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td scope="row">Publisher</td>
+            <td scope="row">
+                {% for item in content.item.boardgamepublisher %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>    
+
+        {% if content.item.yearpublished %}
+        <tr>
+            <td scope="row">Year</td>
+            <td scope="row">{{content.item.yearpublished}}</td>
+        </tr>            
+        {% endif %}
+        
+        <tr>
+            <td scope="row">Number of Players</td>
+            <td scope="row">{{content.item.minplayers}} - {{content.item.maxplayers}}</td>
+        </tr>
+        
+        {% if content.item.suggested_numplayers %}
+        <tr>
+            <td scope="row">Suggested Num of Players</td>
+            <td scope="row">
+                            Best: {{content.item.suggested_numplayers.best_player}} <br />
+                            Recommand: {{content.item.suggested_numplayers.recommended_player}} <br />
+                            ({{content.item.suggested_numplayers.voters}} voters)
+            </td>
+        </tr>            
+        {% endif %}
+        
+        <tr>
+            <td scope="row">Playing Time</td>
+            <td scope="row">{{content.item.playingtime}} Minutes</td>
+        </tr>
+        
+        <tr>
+            <td scope="row">Minium Age</td>
+            <td scope="row">{{content.item.minage}}</td>
+        </tr>
+        
+        {% if content.item.suggested_playerage %}
+        <tr>
+            <td scope="row">Suggested Min age of player</td>
+            <td scope="row">
+                            {{content.item.suggested_playerage.age}}<br />
+                            ({{content.item.suggested_playerage.voters}} voters)
+            </td>
+        </tr>            
+        {% endif %}            
+        
+        {% if content.item.language_dependence %}
+        <tr>
+            <td scope="row">Language Dependence</td>
+            <td scope="row">
+                            {{content.item.language_dependence.result_language}}<br />
+                            ({{content.item.language_dependence.voters}} voters)
+            </td>
+        </tr>            
+        {% endif %}      
+
+        <tr>
+            <td scope="row">Category</td>
+            <td scope="row">
+                {% for item in content.item.boardgamecategory %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>   
+        
+        <tr>
+            <td scope="row">Memechanic</td>
+            <td scope="row">
+                {% for item in content.item.boardgamemechanic %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>               
+        
+        {% if content.item.boardgameexpansion %}
+        <tr>
+            <td scope="row">Expansion</td>
+            <td scope="row">
+                {% for item in content.item.boardgameexpansion %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>                      
+        {%endif %}
+        
+        {% if content.item.boardgameexpands %}
+        <tr>
+            <td scope="row">Expand</td>
+            <td scope="row">
+                {% for item in content.item.boardgameexpands %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>                       
+        {% endif %}
+        
+        {% if content.item.boardgamefamily %}
+        <tr>
+            <td scope="row">Family</td>
+            <td scope="row">
+                {% for item in content.item.boardgamefamily %}
+                    <a href="{{item.url}}" target="blank">{{item.name}}</a><br>
+                {% endfor %}
+            </td>
+        </tr>                        
+        {% endif %}
+        
+        {% if content.item.primary %}
+        <tr>
+            <td scope="row">Primary Name</td>
+            <td scope="row">{{content.item.primary}}</td>
+        </tr>                        
+        {% endif %}
+        
+        <tr>
+            <td scope="row">Alternative name</td>
+            <td scope="row">
+                {% for item in content.item.alternate %}
+                    {{item}}<br>
+                {% endfor %}
+            </td>
+        </tr>         
+
+        
+        <tr>
+            <td scope="row">BGG Weight</td>
+            <td scope="row">
+                {% if content.item.avgWeight %}
+                    {{content.item.avgWeight}} / 5.0
+                {% else %}
+                    NA
+                {% endif %}
+                </td>
+        </tr>                        
+        
+        <tr>
+            <td scope="row">BGG Rank</td>
+            <td scope="row">
+                {% if content.item.avgRank %}
+                    {{content.item.avgRank}} / 10.0
+                {% else %}
+                    NA
+                {% endif %}
+                </td>
+        </tr>                        
+    </tbody>
+    </table>
+    
+    
+    <table class="bggapi">
+        <thead>
+        <tr><th colspan="2">BGG membeer also likes...</th></tr>
+        </thead>
+        <tbody>
+            {% for game in content.item.alsoLike %}
+            <tr>
+                <td scope="row" align="center">
+                    <a href="{{game.gameLink}}" target="_blank"><img src="{{game.gameImage}}"></a>
+                </td>
+                <td scope="row">
+                    <strong>{{game.gameName}}</strong>
+                    <br>
+                    <blockquote>{{game.gameDesc}}</blockquote>
+                    <p>{{game.gameMeta|raw}}</p>
+                </td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+    <p class="bggapi-courtesy">Data is captured from <a href="https://boardgamegeek.com/" target="_blank">boardgamegeek.com</a><br>
+    <a href="{{content.item.bggUrl}}" target="_blank">Visit the BGG Entry</a></p>
+        
+
+</div>
+
